@@ -1,0 +1,32 @@
+<ActionBar title="Convey" class="action-bar">
+</ActionBar>
+
+<!--
+The StackLayout stacks UI components on the screen — either vertically or horizontally.
+In this case, the StackLayout does vertical stacking; you can change the stacking to
+horizontal by applying a orientation="horizontal" attribute to the <StackLayout> element.
+You can learn more about NativeScript layouts at https://docs.nativescript.org/ui/layout-containers.
+
+These components make use of severalsadsd CSS class names that are part of the NativeScript
+core theme, such as p-20, btn, h2, and list-group. You can view a full list of the
+class names available for styling your app at https://docs.nativescript.org/ui/theme.
+-->
+<StackLayout class="page">
+
+    <Label padding="10" fontSize="30" text="Convey"></Label>
+    <Label padding="10" fontSize="20" text="Cannabis Patient Personal Profile"></Label>
+
+    <RadDataForm [source]="patient" tkExampleTitle tkToggleNavButton height="300">
+        <TKEntityProperty [valuesProvider]="conditions" tkDataFormProperty name="condition" displayName="Select your condition" index="0">
+            <TKPropertyEditor tkEntityPropertyEditor type="Picker"></TKPropertyEditor>
+        </TKEntityProperty>
+        <TKEntityProperty [valuesProvider]="states" tkDataFormProperty name="state" displayName="Which state?" index="1">
+            <TKPropertyEditor tkEntityPropertyEditor type="Picker"></TKPropertyEditor>
+        </TKEntityProperty>
+        <TKEntityProperty [valuesProvider]="frequency" tkDataFormProperty name="frequency" displayName="Tolerance" index="1">
+            <TKPropertyEditor tkEntityPropertyEditor type="Picker"></TKPropertyEditor>
+        </TKEntityProperty>
+    </RadDataForm>
+
+    <Button (tap)="submit()" text="Submit">Submit</Button>
+</StackLayout>
